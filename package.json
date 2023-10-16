@@ -8,18 +8,17 @@
   "module": "dist/reveal.esm.js",
   "license": "MIT",
   "scripts": {
-    "test": "gulp test",
     "start": "gulp serve",
     "build": "gulp build"
   },
   "author": {
-    "name": "Hakim El Hattab",
-    "email": "hakim.elhattab@gmail.com",
-    "web": "https://hakim.se"
+    "name": "Todd Halfpenny",
+    "email": "todd@toddhalfpenny.com",
+    "web": "https://toddhalfpenny.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hakimel/reveal.js.git"
+    "url": "git://github.com/toddhalfpenny/salesforce-lws-talk-northafricadreamin-23.git"
   },
   "engines": {
     "node": ">=10.0.0"
