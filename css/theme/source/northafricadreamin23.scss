@@ -26,16 +26,21 @@
     font-family: "Roboto-Condensed";
     src: url("../assets/RobotoCondensed-Bold.ttf");
 }
+@font-face {
+    font-family: "nad";
+    src: url("../assets/fonts/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Ew7.woff2");
+}
 
 // Our variables
 :root {
-    --naGreen: #FAAF3A;
+    --naGreen: #1A6111;
+    --naMainColor: #000;
     --accent: var(--naGreen);
 }
 
 // North Africa Dreamin Logo Colours
 $naOrange: #F05A26;
-$naGreen: #FAAF3A;
+$naGreen: #1A6111;
 $naLightestBlue: #AADEE8;
 $naLightBlue: #29A9E1;
 $naBlue: #0972B9;
@@ -43,10 +48,10 @@ $naDarkBlue: #23418C;
 
 
 // Override theme settings (see ../template/settings.scss)
-$mainFont: 'Roboto-Regular', serif, sans-serif;
-$mainColor: $naDarkBlue;
-$headingFont: 'Roboto-Condensed', Impact, sans-serif;
-$headingColor: $naOrange;
+$mainFont: 'nad',  serif, sans-serif;
+$mainColor: #000;
+$headingFont: 'nad', 'Roboto-Condensed', Impact, sans-serif;
+$headingColor: $mainColor;
 $headingTextShadow: none;
 $headingTextTransform: none;
 $backgroundColor: #fff;
@@ -65,11 +70,28 @@ $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 // Layout
 section {
     vertical-align: top;
+    padding-right: 2em;
+    padding-left: 2em;
 }
 section.has-header {
     margin-top: 2.5em;
 }
 
+section.title-slide {
+    height: 100%;
+    padding: 0;
+}
+
+section.title-slide h1, section.title-slide h2 {
+    color: var(--naGreen);
+    font-weight: bold;
+    margin: 0em auto;
+    max-width: 80%;
+}
+
+.title-slide .title-logo {
+    max-width: 15%;
+}
 section ul {
     line-height: 1.5;
     vertical-align: top;
@@ -109,33 +131,37 @@ img.screenshot.center {
 }
 
 footer {
-    // TODO 
-    background-image: url(../assets/city-scape-silhoette.png);
+    background-color: white;
+    border-top: 0.4em solid var(--naGreen);
     font-size: 1em;
     position: absolute;
-    display: grid;
-    width: 100%;
-    background-size: contain;
-    height: 100%;
-    background-repeat: no-repeat;
-    align-content: end;
-    background-position: bottom;
-    bottom: -6%;
+    display: flex;
+    width: 97.3%;
+    bottom: -1%;
     padding-left: 1em;;
+    height: 10%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#footer a {
+    color: var(--naMainColor);
 }
 
 header {
+    background-color: white;
+    border-bottom: 0.4em solid var(--naGreen);
+    display: flex;
+    justify-content: space-around;
     font-size: 0.8em;
     position: fixed;
     top: -5%;
-    width: 95%
+    width: 100%
 }
 
 .reveal header img {
-    margin: 0;
-    position: relative;
-    top: -110px;
     max-width: 15%;
+    object-fit: scale-down;
 }
 
 header.hidden, footer.hidden {
@@ -161,6 +187,7 @@ header.hidden, footer.hidden {
 
 .reveal .slides {
     text-align: left;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 70%, rgba(255, 255, 255, 0.4) 100%), radial-gradient(circle, rgba(26, 97, 17, 0.1) 0%, #1a6111 100%), url(../assets/imgs/nad23-background.png);
 }
 .reveal .slides .title-slide, reveal .slides #thankyou  {
     text-align: center;
@@ -168,15 +195,15 @@ header.hidden, footer.hidden {
 
 .reveal .slide-title {
     // text-align: left;
-    // font-size: 1.5em;
-    border-width: 0 0 3px;
-    border-style: solid;
-    border-image: 
-      linear-gradient(
-        to right, 
-        var(--accent), 
-        rgba(0, 0, 0, 0)
-      ) 7 ;
+    font-size: 1.2em;
+    // border-width: 0 0 3px;
+    // border-style: solid;
+    // border-image: 
+    //   linear-gradient(
+    //     to right, 
+    //     var(--accent), 
+    //     rgba(0, 0, 0, 0)
+    //   ) 7 ;
       margin-bottom: 0.5em;
 }
 .reveal .slide-title  h1 {
@@ -191,7 +218,7 @@ header.hidden, footer.hidden {
 .title-slide h1, .thankyou h1 {
     border-width: 0;
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
 }
 .reveal h2 {
     font-size: 1.3em;
@@ -199,9 +226,13 @@ header.hidden, footer.hidden {
 .reveal h3 {
     font-size: 0.9em;
 }
-#thankyou p {
-    line-height: 1em;
-    text-align: center;
+#thankyou .title-logo, #qAndA .title-logo {
+    max-width: 20%;
+}
+
+#thankyou h1, #qAndA h1 {
+    font-size: 4em;
+    margin-top: 0.6em;
 }
 
 .author {
@@ -246,11 +277,18 @@ tr.highlight-line td.hljs-ln-numbers {
     font-weight: bold;
 }
 
-li::marker {
-    color: $naOrange;
-    // content: "►";
+#resources li {
+    line-height: 1.1em;
+    margin-bottom: 1.5em;
+}
+ 
+ol {
+    width: 100%;
 }
 
+.seen {
+    opacity: 0.5;
+}
 hr {
     background-color: var(--accent);
     border: none;
@@ -282,8 +320,11 @@ img.screenshot, video {
 img.qrcode {
     max-width: 3em;
     position: absolute;
-    right: 0;
+    right: 5em;
     margin-top: -1.5em;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid var(--naGreen);
 }
  img.sljackson {
     width: 70%;
@@ -294,4 +335,48 @@ i.center {
     color: var(--accent);
     display: grid;
     justify-content: center;
+}
+
+
+// SPONSORS
+
+#sponsors {
+    border-top: 20px solid var(--naGreen);
+    bottom: 0;
+    height: 40%;
+    background-color: white;
+    position: absolute;
+    width: 100%;
+}
+#sponsors h3 {
+    font-size: 0.8em;
+    margin: 0.5em 1em;
+    text-align: left;
+}
+#intro-sponsors1, #intro-sponsors2 , #intro-sponsors3 {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-height: 20%;
+    margin-bottom: 1%;
+}
+
+
+#intro-sponsors1 img, #intro-sponsors2 img {
+    max-width: 20%
+}
+#intro-sponsors2 {
+    justify-content: space-evenly;
+}
+
+#intro-sponsors3 {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    max-height: 10%;
+}
+#intro-sponsors3 img {
+    max-width: 100%;
+    max-height: 82px;
 }
