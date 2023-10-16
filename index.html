@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		<div class="reveal">
-			<div class="slides">
+			<div id="slides" class="slides">
 				<!-- 
 					===========================================================
 					HEADER
@@ -211,17 +211,11 @@
 					===========================================================
 					DEMO VIDEO 1a - Global Objects DESKTOP
 				 -->
-				 <!--<section id="playground" class="fullvideo" data-background-video ="assets/vids/playground-01d.webm" 
-				 data-background-size="contain">-->
-				<section id="global-objects-demo">
-					<h1>DEMO VIDEO</h1>
+				 <section id="global-objects-demo" class="fullvideo" data-background-video ="assets/vids/lws-talk-raw-01.mp4" 
+				 data-background-size="contain">
 					 <aside class="notes">
 						 <ul>
-							 <li>Web APIs - Media</li>
-							 <li>Web APIs - Clipboard Text</li>
-							 <li>Web APIs - Clipboard Image</li>
-							 <li>Web APIs - 3rd Party Libraries</li>
-							 <li>TODO - VID ADD CODE</li>
+							 <li>TODO - VID ADD CODE and ZOOM to vide</li>
 						 </ul>
 					 </aside>
 				 </section>
@@ -281,10 +275,39 @@
 					===========================================================
 					DEMO VIDEO 2a - X-NAMESPACE
 				 -->
-				 <!--<section id="playground" class="fullvideo" data-background-video ="assets/vids/playground-01d.webm" 
-				 data-background-size="contain">-->
-				<section id="x-namespace-demo">
-					<h1>DEMO VIDEO</h1>
+				 <section id="x-namespace-demo" class="fullvideo" data-background-video ="assets/vids/lws-talk-raw-02.mp4" 
+				 data-background-size="contain">
+					 <aside class="notes">
+						 <ul>
+							 <li>Build on our previous demo</li>
+							 <li>Stephan Chandler-Garcia OSS Lightning Message Utility</li>
+							 <li>More components on AppX</li>
+							 <li>TODO - VID ADD CODE</li>
+						 </ul>
+					 </aside>
+				 </section>
+				 <!-- 
+					===========================================================
+					DEMO VIDEO 2a - X-NAMESPACE
+				 -->
+				 <section id="x-namespace-code">
+					<div class="slide-title">
+						<h1>X-Namespace Component</h1>
+					</div>
+					<p class="filename">globalObjectTwo.html</p>
+					<pre class="center"><code class="language-html" data-trim data-line-numbers="0|1|2-9|0">
+						<template lwc:if={error}>
+							&#60ltngmu-lwc-messaging-utility
+								message-type="alert"
+								show-message="true"
+								message-body="Unable to paste ..."
+								message-variant="warning"
+								...
+								>
+							&#60/ltngmu-lwc-messaging-utility>
+						</template>
+					</code></pre>
+					<img class="screenshot center" src="assets/imgs/x-namespace-screenshot.png"/>
 					 <aside class="notes">
 						 <ul>
 							 <li>Build on our previous demo</li>
@@ -296,6 +319,7 @@
 				 </section>
 
 
+				 
 				
 				<!-- 
 					===========================================================
@@ -318,44 +342,107 @@
 							<li>Well Winter 24 scuppered my talk ;-)</li>
 							<li>Let’s see it anyway - 2 talks in one</li>
 							<li>Mohith: “the team got so much feedback that it takes sometime to move to LWS for enterprise customers, they made it working without LWS”</li>
-							<li>TODO - Still got limit?</li>
 						</ul>
 					</aside>
 				</section>
 				<!-- 
 					===========================================================
-					DEMO VIDEO 3a - REFRESHVIEW
+					DEMO VIDEO 3a - REFRESHVIEW WIHOUT LWS
 				 -->
-				 <!--<section id="playground" class="fullvideo" data-background-video ="assets/vids/playground-01d.webm" 
-				 data-background-size="contain">-->
-				<section id="refreshview-demo">
-					<h1>DEMO VIDEO</h1>
+				 <section id="refreshview-demo-1" class="fullvideo" data-background-video ="assets/vids/lws-talk-raw-03.mp4" 
+				 data-background-size="contain">
 					 <aside class="notes">
 						 <ul>
-							 <li></li>
-							 <li></li>
 							 <li>TODO - VID ADD CODE</li>
 						 </ul>
 					 </aside>
 				 </section>
 				 <!-- 
 					===========================================================
-					DEMO 3b - REFRESHVIEW
+					DEMO 3b - REFRESHVIEW SHOW LWS CODE
 				-->
-				<section id="refreshview-aura" class="has-header">
+				<section id="refreshview-lws1" class="has-header">
 					<div class="slide-title">
-						<h1>Show me the good stuff</h1>
-					</div>
-					<ol>
-						<li class="seen">Access to global objects</l1>
-						<li class="seen">X-Namespace component use</l1>
-						<li class="">RefreshView API</l1>
-					</ol>
+						<h1>RefreshView API (LWS)</h1>
+					</div>					
+					<p class="filename">newContact.js</p>
+					<pre class="center"><code class="language-javascript" data-trim data-line-numbers="0|1|4-6|0">
+						import { RefreshEvent } from "lightning/refresh";
+						...
+						...
+						handleSave(){ 
+							this.dispatchEvent(new RefreshEvent());
+						}
+					</code></pre>
 					<ul>
 					</ul>
 					<aside class="notes">
 						<ul>
-							<li>TODO - Code comparisson</li>
+							<li>Standard components already appear to be handling updates</li>
+							<li></li>
+						</ul>
+					</aside>
+				</section>
+				<!-- 
+				   ===========================================================
+				   DEMO 3c - REFRESHVIEW SHOW LWS CODE
+			   -->
+			   <section id="refreshview-lws2" class="has-header">
+				   <div class="slide-title">
+					   <h1>RefreshView API (LWS)</h1>
+				   </div>					
+				   <p class="filename">primaryContact.js</p>
+				   <pre class="center"><code class="language-javascript" data-trim data-line-numbers="1|4-7|9-14">
+import { registerRefreshHandler, ... } from "lightning/refresh";
+import { refreshApex } from "@salesforce/apex";
+...
+connectedCallback(){ 
+	this.refreshID = registerRefreshHandler(
+		this, this.refreshHandler);
+}
+...
+refreshHandler() {
+	return new Promise(async (resolve, reject) => {
+		refreshApex(this.wiredContactsResult)
+		.then(() => resolve(true));
+	});
+}
+				   </code></pre>
+				   <aside class="notes">
+					   <ul>
+						   <li>Standard components already appear to be handling updates</li>
+						   <li></li>
+					   </ul>
+				   </aside>
+			   </section>
+				<!-- 
+					===========================================================
+					DEMO VIDEO 3c - REFRESHVIEW VID WITH LWS
+				 -->
+				 <section id="refreshview-demo-2" class="fullvideo" data-background-video ="assets/vids/lws-talk-raw-04.mp4" 
+				 data-background-size="contain">
+					 <aside class="notes">
+						 <ul>
+							 <li>TODO - ADD CODE</li>
+						 </ul>
+					 </aside>
+				 </section>
+				 <!-- 
+					===========================================================
+					DEMO 3e - REFRESHVIEW
+				-->
+				<section id="refreshview-aura" class="has-header">
+					<div class="slide-title">
+						<h1>RefreshView API (Aura)</h1>
+					</div>					
+					<p class="filename">primaryContact.js</p>
+					<pre class="center"><code class="language-javascript" data-trim data-line-numbers="">
+// TODO
+					</code></pre>
+					<aside class="notes">
+						<ul>
+							<li>Standard components are not firing on delete</li>
+							<li>TODO - Locker Code comparisson</li>
 						</ul>
 					</aside>
 				</section>
@@ -552,11 +639,11 @@
 					hideFooter();
 					hideHeader();
 				}
-				//if (event.currentSlide.className.includes('has-intro-footer')) {
-				//	showIntroFooter();
-				//} else {
-				//	hideIntroFooter();
-				//}
+				if (event.currentSlide.className.includes('fullvideo')) {
+					hideBackground();
+				} else {
+					showBackground();
+				}
 			} );
 
 			function hideFooter() {
@@ -587,19 +674,17 @@
 				if (el.className && el.className === 'hidden'){ el.className = ''};
 			}
 
-			//function hideIntroFooter() {
-			//	console.log('hideFooter');
-			//	let el = document.getElementById('intro-footer');
-			//	console.log('intro-footer', el);
-			//	if (el.className !== 'hidden'){ el.className = 'hidden' };
-			//}
+			function showBackground() {
+				console.log('showBackground');
+				let el = document.getElementById('slides');
+				el.classList.remove("hide-background");
+			}
 
-			//function showIntroFooter() {
-			//	console.log('showFooter');
-			//	let el = document.getElementById('intro-footer');
-			//	console.log('intro-footer', el);
-			//	if (el.className && el.className === 'hidden'){ el.className = ''};
-			//}
+			function hideBackground() {
+				console.log('hideBackground');
+				let el = document.getElementById('slides');
+				el.classList.add("hide-background");
+			}
 		</script>
 	</body>
 </html>

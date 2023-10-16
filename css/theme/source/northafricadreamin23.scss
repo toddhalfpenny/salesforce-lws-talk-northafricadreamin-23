@@ -189,6 +189,11 @@ header.hidden, footer.hidden {
     text-align: left;
     background-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 70%, rgba(255, 255, 255, 0.4) 100%), radial-gradient(circle, rgba(26, 97, 17, 0.1) 0%, #1a6111 100%), url(../assets/imgs/nad23-background.png);
 }
+
+.reveal .hide-background{
+    background-image: none;
+}
+
 .reveal .slides .title-slide, reveal .slides #thankyou  {
     text-align: center;
 }
@@ -267,6 +272,10 @@ pre.center {
     max-width: 70%;
 }
 
+#refreshview-lws2 pre.center {
+    max-width: 80%;
+}
+
 tr.highlight-line td.hljs-ln-code {
     font-weight: bold;
     border:3px dashed var(--accent);
@@ -289,6 +298,11 @@ ol {
 .seen {
     opacity: 0.5;
 }
+
+.filename {
+    font-family: monospace;
+}
+
 hr {
     background-color: var(--accent);
     border: none;
