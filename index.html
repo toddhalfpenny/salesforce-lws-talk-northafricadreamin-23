@@ -4,11 +4,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Synchronising Component Data and MOAR. Let's dive into Lightning Web Security - North Africa Dreamin '23</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/northafricadreamin23.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -16,8 +16,510 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<!-- 
+					===========================================================
+					HEADER
+				-->
+				<header id='header' class="hidden">
+					<img src="assets/imgs/sponsor/cap.png" />
+					<img src="assets/imgs/sponsor/dandb.png"/>
+					<img src="assets/imgs/sponsor/deloitte.png"/>
+					<img src="assets/imgs/sponsor/hexagone.png"/>
+					<img src="assets/imgs/sponsor/nbs.png">
+				</header>
+	
+
+
+				<!-- 
+					===========================================================
+					TITLE
+				-->
+				<section id="title" class="title-slide" data-transition="fade-in fade-out">
+				<img class="title-logo" src="assets/imgs/logo_NADREAMIN.png">
+				<h1>Synchronising Component Data and MOAR</h1>
+				<h2>Let's dive into Lightning Web Security</h2>
+				<div id="sponsors">
+					<h3>SPONSORED BY:</h3>
+					<div id='intro-sponsors1'>
+						<img src="assets/imgs/sponsor/cap.png" />
+						<img src="assets/imgs/sponsor/dandb.png"/>
+						<img src="assets/imgs/sponsor/deloitte.png"/>
+					</div>
+					<div id='intro-sponsors2'>
+						<img src="assets/imgs/sponsor/hexagone.png"/>
+						<img src="assets/imgs/sponsor/nbs.png">
+					</div>
+					<div id='intro-sponsors3'>
+						<img src="assets/imgs/sponsor/gear9.png" />
+						<img src="assets/imgs/sponsor/gridmate.png"/>
+						<img src="assets/imgs/sponsor/intelica.png"/>
+						<img src="assets/imgs/sponsor/leyton.png"/>
+						<img src="assets/imgs/sponsor/oreivation.png">
+						<img src="assets/imgs/sponsor/vanighns.png"/>
+						<img src="assets/imgs/sponsor/viseo.png">
+					</div>
+				</div>
+				<aside class="notes">
+					<ul>
+						<li>Thank sponsors and organisers</li>
+					</ul>
+				</aside>	
+				</section>
+
+
+				<!-- 
+					===========================================================
+					ME
+				-->
+				<section id="me" class="has-header">
+					<div class="slide-title">
+						<h1>Me</h1>
+					</div>
+					<ul>
+						<li>Mobile Technical Architect @ <a href="https://caddify.com/">Caddify</a></li>
+						<li>London Dev Group organiser</li>
+						<li><a href="https://londonscalling.net">London's Calling</a> organiser</li>
+						<li>Salesforce MVP</li>
+						<li>Golden Hoodie Recipient</li>
+						<li>Founder of <a href="https://shirtforce.org">Shirtforce</a></li>
+					</ul>
+					<img class="r-stretch"  data-src="assets/imgs/todd.jpeg">
+					<p>&nbsp;</p>
+				</section>
+
+
+				<!-- 
+					===========================================================
+					TOPIC INTRO
+				 -->
+				 <section id="topic-intro" class="has-header">
+					<div class="slide-title">
+						<h1>Lightning Web Security</h1>
+						<h2>Synchronising Component Data and MOAR</h2>
+					</div>
+					<ul>
+						<li class="fade-in-then-semi-out fragment">What, Why, and When</li>
+						<li class="fade-in-then-semi-out fragment">Tooling</li>
+						<li class="fade-in-then-semi-out fragment">Examples</li>
+						<li class="fade-in-then-semi-out fragment">Benefits &amp; Limitations</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li></li>
+							<li></li>
+						</ul>
+					</aside>	
+				</section>
+
+
+				<!-- 
+					===========================================================
+					WHY DO WE NEED THIS
+				-->
+				<section id="why-lightning-web-security" class="has-header">
+					<div class="slide-title">
+						<h1>We already have Locker Service</h1>
+						<h2>Do we need something new?</h2>
+					</div>
+					<ul>
+						<li class="fade-in-then-semi-out fragment">A brief history</li>
+						<li class="fade-in-then-semi-out fragment">The down-sides</li>
+						<li class="fade-in-then-semi-out fragment">The future</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>LS Built by SF to fulfill a need</li>
+							<li>non-standard</li>
+							<li>Huge distortions - e.g. window global objects</li>
+							<li>Performance hit</li>
+							<li>LS is being maintained, not enhanced</li>
+						</ul>
+					</aside>
+				</section>
+
+
+				<!-- 
+					===========================================================
+					WHAT IS LWS
+				-->
+				<section id="why-lightning-web-security" class="has-header">
+					<div class="slide-title">
+						<h1>And Lightning Web Security is Better?</h1>
+					</div>
+					<ul>
+						<li class="fade-in-then-semi-out fragment">Just as secure</li>
+						<li class="fade-in-then-semi-out fragment">Standards based</li>
+						<li class="fade-in-then-semi-out fragment">Better performance</li>
+						<li class="fade-in-then-semi-out fragment">Other benefits... we will get to them</li>
+						<li class="fade-in-then-semi-out fragment">Also things to consider... we will get to them too</li>
+						<li class="fade-in-then-semi-out fragment">Available now</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Standards based</li>
+							<li>"We expect to resume automatic enablement beginning with Winter24"</li>
+							<li>TODO IMAGE FROM BLOG</li>
+						</ul>
+					</aside>
+				</section>
+
+
+
+				<!-- 
+					===========================================================
+					TOOLING
+				-->
+				<section id="tooling" class="has-header">
+					<div class="slide-title">
+						<h1>There are some tools to help you</h1>
+					</div>
+					<ul>
+						<li>LWS Console</li>
+						<li>LWS Distortion Viewer</li>
+						<li>LWS ESLint Plugin</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>TODO - Example of these in action</li>
+						</ul>
+					</aside>
+				</section>				
+				
+				
+				
+				<!-- 
+					===========================================================
+					DEMO 1 - Global Objects
+				-->
+				<section id="global-objects" class="has-header">
+					<div class="slide-title">
+						<h1>Show me the good stuff</h1>
+					</div>
+					<ol>
+						<li class="fade-in-then-semi-out fragment">Access to global objects</l1>
+					</ol>
+					<ul>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Remeber we mentioned LS has a pretent window</li>
+							<li>TODO What else? localStorage/indexedDB etc</li>
+						</ul>
+					</aside>
+				</section>
+				<!-- 
+					===========================================================
+					DEMO VIDEO 1a - Global Objects DESKTOP
+				 -->
+				 <!--<section id="playground" class="fullvideo" data-background-video ="assets/vids/playground-01d.webm" 
+				 data-background-size="contain">-->
+				<section id="global-objects-demo">
+					<h1>DEMO VIDEO</h1>
+					 <aside class="notes">
+						 <ul>
+							 <li>Web APIs - Media</li>
+							 <li>Web APIs - Clipboard Text</li>
+							 <li>Web APIs - Clipboard Image</li>
+							 <li>Web APIs - 3rd Party Libraries</li>
+							 <li>TODO - VID ADD CODE</li>
+						 </ul>
+					 </aside>
+				 </section>
+				<!-- 
+					===========================================================
+					DEMO 1 - Global Objects - MOBILE
+				-->
+				<section id="global-objects-recap" class="has-header">
+					<div class="slide-title">
+						<h1>Show me the good stuff</h1>
+					</div>
+					<ol>
+						<li>Access to global objects</l1>
+					</ol>
+					<p>&nbsp;</p>
+					<p>Not complete parity on mobile</p>
+					<ul>
+						<li>Limited navigator</li>
+						<li>Clipboard exposed, but no permissions</li>
+						<li>No WebShare</li>
+						<li>No bluetooth</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Have asked about increasing the scope</li>
+							<li>And we have lightning/mobileCapabilities</li>
+						</ul>
+					</aside>
+				</section>
+
+
+
+				<!-- 
+					===========================================================
+					DEMO 2 - X-NAMESPACE
+				-->
+				<section id="x-namespace" class="has-header">
+					<div class="slide-title">
+						<h1>Show me the good stuff</h1>
+					</div>
+					<ol>
+						<li class="seen">Access to global objects</l1>
+						<li class="">X-Namespace component use</l1>
+					</ol>
+					<ul>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Import components / moudles x-namepsace</li>
+							<li>Components are isolated in their own namespace JavaScript sandbox</li><li>
+							<li>but transparent because LWS performs virtual comms BTS</li>
+							<li></li>
+						</ul>
+					</aside>
+				</section>
+				<!-- 
+					===========================================================
+					DEMO VIDEO 2a - X-NAMESPACE
+				 -->
+				 <!--<section id="playground" class="fullvideo" data-background-video ="assets/vids/playground-01d.webm" 
+				 data-background-size="contain">-->
+				<section id="x-namespace-demo">
+					<h1>DEMO VIDEO</h1>
+					 <aside class="notes">
+						 <ul>
+							 <li>Build on our previous demo</li>
+							 <li>Stephan Chandler-Garcia OSS Lightning Message Utility</li>
+							 <li>More components on AppX</li>
+							 <li>TODO - VID ADD CODE</li>
+						 </ul>
+					 </aside>
+				 </section>
+
+
+				
+				<!-- 
+					===========================================================
+					DEMO 3 - REFRESHVIEW
+				-->
+				<section id="refreshview" class="has-header">
+					<div class="slide-title">
+						<h1>Show me the good stuff</h1>
+					</div>
+					<ol>
+						<li class="seen">Access to global objects</l1>
+						<li class="seen">X-Namespace component use</l1>
+						<li class="">RefreshView API</l1>
+					</ol>
+					<ul>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Refresh components without needing to refresh the page</li>
+							<li>Well Winter 24 scuppered my talk ;-)</li>
+							<li>Let’s see it anyway - 2 talks in one</li>
+							<li>Mohith: “the team got so much feedback that it takes sometime to move to LWS for enterprise customers, they made it working without LWS”</li>
+							<li>TODO - Still got limit?</li>
+						</ul>
+					</aside>
+				</section>
+				<!-- 
+					===========================================================
+					DEMO VIDEO 3a - REFRESHVIEW
+				 -->
+				 <!--<section id="playground" class="fullvideo" data-background-video ="assets/vids/playground-01d.webm" 
+				 data-background-size="contain">-->
+				<section id="refreshview-demo">
+					<h1>DEMO VIDEO</h1>
+					 <aside class="notes">
+						 <ul>
+							 <li></li>
+							 <li></li>
+							 <li>TODO - VID ADD CODE</li>
+						 </ul>
+					 </aside>
+				 </section>
+				 <!-- 
+					===========================================================
+					DEMO 3b - REFRESHVIEW
+				-->
+				<section id="refreshview-aura" class="has-header">
+					<div class="slide-title">
+						<h1>Show me the good stuff</h1>
+					</div>
+					<ol>
+						<li class="seen">Access to global objects</l1>
+						<li class="seen">X-Namespace component use</l1>
+						<li class="">RefreshView API</l1>
+					</ol>
+					<ul>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>TODO - Code comparisson</li>
+						</ul>
+					</aside>
+				</section>
+
+
+
+				<!-- 
+					===========================================================
+					BENEFITS + LIMITATIONS
+				-->
+				<section id="benefits-limitations" class="has-header">
+					<div class="slide-title">
+						<h1>LWS - Benefits &amp; Limitations</h1>
+					</div>				
+					<div class="cols-2">
+						<div class="col fragment">
+							<h2>Limitations</h2>
+							<ul>
+								<li class="">Aura support</li>
+								<li class="">Distortions</li>
+								<li class="">Mobile parity</li>
+								<li>ISV implications</li>
+							</ul>
+						</div>
+						<div class="col fragment">
+							<h2>But... the Benefits</h2>
+							<ul>
+								<li class="">Global object access</li>
+								<li class="">3rd party lib support</li>
+								<li class="">X-Namespace</li>
+								<li class="">RefreshView API</li>
+							</ul>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>TODO check on distortion terminolgy</li>
+							<li>Differing mobile support</li>
+							<li>MORE could be exposed to mobile</li>
+						</ul>
+					</aside>
+				</section>
+				
+				
+				
+				<!-- 
+					===========================================================
+					SUMARRY
+				-->
+				<section id="summary" class="has-header">
+					<div class="slide-title">
+						<h1>So in summary</h1>
+					</div>
+					<ul>
+						<li>What, Why, and When</li>
+						<li>Tooling</li>
+						<li>Examples</li>
+						<li>Benefits &amp; Limitations</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li></li>
+							<li></li>
+						</ul>
+					</aside>
+				</section>
+				
+				
+				
+				<!-- 
+					===========================================================
+					RESOURCES
+				-->
+				<section id="resources" class="has-header">
+					<div class="slide-title">
+						<h1>Resources</h1>
+					</div>
+					<ul>
+						<li>LWS FAQ<br/><a target="_blank" href="https://sforce.co/3RYInSO">sforce.co/3RYInSO</a><img class="qrcode" src="assets/imgs/sforce.co_3RYInSO.png"/></li>
+						<li>CodeLive - RefreshView API<br/><a target="_blank" href="https://bit.ly/3RWE7DA">bit.ly/3RWE7DA</a><img class="qrcode" src="assets/imgs/bit.ly_3RWE7DA.png"/></li>
+						<li>Lightning Message Utility Component<br/><a target="_blank" href="https://sforce.co/46E6CtS">sforce.co/46E6CtS</a><img class="qrcode" src="assets/imgs/sforce.co_46E6CtS.png"/></li>
+						<li>These slides<br/><a target="_blank" href="https://todo">todo</a><img class="qrcode" src="assets/imgs/todo.png"/></li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>
+				</section>
+				
+				
+				
+				<!-- 
+					===========================================================
+					Q&A
+				-->
+				<section id="qAndA" class="title-slide" data-transition="fade-in fade-out">
+					<img class="title-logo" src="assets/imgs/logo_NADREAMIN.png">
+					<h1>Q&A</h1>
+					<div id="sponsors">
+						<h3>SPONSORED BY:</h3>
+						<div id='intro-sponsors1'>
+							<img src="assets/imgs/sponsor/cap.png" />
+							<img src="assets/imgs/sponsor/dandb.png"/>
+							<img src="assets/imgs/sponsor/deloitte.png"/>
+						</div>
+						<div id='intro-sponsors2'>
+							<img src="assets/imgs/sponsor/hexagone.png"/>
+							<img src="assets/imgs/sponsor/nbs.png">
+						</div>
+						<div id='intro-sponsors3'>
+							<img src="assets/imgs/sponsor/gear9.png" />
+							<img src="assets/imgs/sponsor/gridmate.png"/>
+							<img src="assets/imgs/sponsor/intelica.png"/>
+							<img src="assets/imgs/sponsor/leyton.png"/>
+							<img src="assets/imgs/sponsor/oreivation.png">
+							<img src="assets/imgs/sponsor/vanighns.png"/>
+							<img src="assets/imgs/sponsor/viseo.png">
+						</div>
+					</div>
+				</section>
+
+
+				<!-- 
+					===========================================================
+					THANK YOU
+				-->
+				<section id="thankyou" class="title-slide" data-transition="fade-in fade-out">
+					<img class="title-logo" src="assets/imgs/logo_NADREAMIN.png">
+					<h1>THANK YOU</h1>
+					<div id="sponsors">
+						<h3>SPONSORED BY:</h3>
+						<div id='intro-sponsors1'>
+							<img src="assets/imgs/sponsor/cap.png" />
+							<img src="assets/imgs/sponsor/dandb.png"/>
+							<img src="assets/imgs/sponsor/deloitte.png"/>
+						</div>
+						<div id='intro-sponsors2'>
+							<img src="assets/imgs/sponsor/hexagone.png"/>
+							<img src="assets/imgs/sponsor/nbs.png">
+						</div>
+						<div id='intro-sponsors3'>
+							<img src="assets/imgs/sponsor/gear9.png" />
+							<img src="assets/imgs/sponsor/gridmate.png"/>
+							<img src="assets/imgs/sponsor/intelica.png"/>
+							<img src="assets/imgs/sponsor/leyton.png"/>
+							<img src="assets/imgs/sponsor/oreivation.png">
+							<img src="assets/imgs/sponsor/vanighns.png"/>
+							<img src="assets/imgs/sponsor/viseo.png">
+						</div>
+					</div>
+				</section>
+
+
+				<!-- 
+					===========================================================
+					FOOTER
+				-->
+				<footer id='footer' class="hidden">
+					<!-- <p class="author"><a href="https://twitter.com/toddhalfpenny">@toddhalfpenny</a></p> -->					
+					<img src="assets/imgs/logo_NADREAMIN.png">
+					<p><a href="https://twitter.com/nafricadreamin">CASABLANCA</a></p>
+					<p><a href="https://twitter.com/nafricadreamin">#NAD2023</a></p>
+				</footer>
 			</div>
 		</div>
 
@@ -25,16 +527,79 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
+			// COMMENTED OUT STUFF FROM C'DREAMIN 22 TALK
 			Reveal.initialize({
+				controls: false,
 				hash: true,
+				center: false,
+				maxScale: 1.8,
+				//margin: 0.18, // Reduced this for NAD as they have a slide background
+				margin: 0.05,
+				progress: false,
+				width: 1500,
+				height: 900,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
 			});
+			Reveal.on( 'slidechanged', event => {
+				console.log('slidechanged', event.currentSlide);
+				if (event.currentSlide.className.includes('has-header')) {
+					showFooter();
+					showHeader();
+				} else {
+					hideFooter();
+					hideHeader();
+				}
+				//if (event.currentSlide.className.includes('has-intro-footer')) {
+				//	showIntroFooter();
+				//} else {
+				//	hideIntroFooter();
+				//}
+			} );
+
+			function hideFooter() {
+				console.log('hideFooter');
+				let el = document.getElementById('footer');
+				console.log('footer', el);
+				if (el.className !== 'hidden'){ el.className = 'hidden' };
+			}
+
+			function showFooter() {
+				console.log('showFooter');
+				let el = document.getElementById('footer');
+				console.log('footer', el);
+				if (el.className && el.className === 'hidden'){ el.className = ''};
+			}
+
+			function hideHeader() {
+				console.log('hideHeader');
+				let el = document.getElementById('header');
+				console.log('header', el);
+				if (el.className !== 'hidden'){ el.className = 'hidden' };
+			}
+
+			function showHeader() {
+				console.log('showHeader');
+				let el = document.getElementById('header');
+				console.log('header', el);
+				if (el.className && el.className === 'hidden'){ el.className = ''};
+			}
+
+			//function hideIntroFooter() {
+			//	console.log('hideFooter');
+			//	let el = document.getElementById('intro-footer');
+			//	console.log('intro-footer', el);
+			//	if (el.className !== 'hidden'){ el.className = 'hidden' };
+			//}
+
+			//function showIntroFooter() {
+			//	console.log('showFooter');
+			//	let el = document.getElementById('intro-footer');
+			//	console.log('intro-footer', el);
+			//	if (el.className && el.className === 'hidden'){ el.className = ''};
+			//}
 		</script>
 	</body>
 </html>
