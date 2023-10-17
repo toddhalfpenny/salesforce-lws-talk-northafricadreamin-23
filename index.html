@@ -76,6 +76,7 @@
 						<h1>Me</h1>
 					</div>
 					<ul>
+						<li>Todd halfpenny <a href="https://toddhalfpenny.com">@toddhalfpenny</a></li>
 						<li>Mobile Technical Architect @ <a href="https://caddify.com/">Caddify</a></li>
 						<li>London Dev Group organiser</li>
 						<li><a href="https://londonscalling.net">London's Calling</a> organiser</li>
@@ -116,7 +117,7 @@
 					===========================================================
 					WHY DO WE NEED THIS
 				-->
-				<section id="why-lightning-web-security" class="has-header">
+				<section id="locker-background" class="has-header">
 					<div class="slide-title">
 						<h1>We already have Locker Service</h1>
 						<h2>Do we need something new?</h2>
@@ -155,7 +156,11 @@
 						<li class="fade-in-then-semi-out fragment">Also things to consider... we will get to them too</li>
 						<li class="fade-in-then-semi-out fragment">Available now</li>
 					</ul>
+						<div>
 						<img class="width80" src="assets/imgs/js-sandboxing.png"/>
+
+						<p class="attribution">Image: Salesforce</p>
+						</div>
 					</div>
 					<aside class="notes">
 						<ul>
@@ -182,10 +187,65 @@
 					</ul>
 					<aside class="notes">
 						<ul>
-							<li>TODO - Example of these in action</li>
+							<li></li>
 						</ul>
 					</aside>
-				</section>				
+				</section>
+				<!-- 
+					===========================================================
+					TOOLING - LWS CONSOLE
+				-->
+				<section id="tooling-console" class="has-header">
+					<div class="slide-title">
+						<h2>LWS Console</h2>
+					</div>
+					<div>
+						<img class="screenshot center" src="assets/imgs/lws-console3.png" />
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>I don't think this is quite right</li>
+							<li>Editor is also clunky</li>
+						</ul>
+					</aside>
+				</section>		
+				<!-- 
+					===========================================================
+					TOOLING - LWS DISTORTION VIEWER
+				-->
+				<section id="tooling-distortion-viewer" class="has-header">
+					<div class="slide-title">
+						<h2>LWS Distortion Viewer</h2>
+					</div>
+					<div>
+						<img class="screenshot center" src="assets/imgs/lws-distortion-viewer-02.png" />
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>A search would be good</li>
+							<li></li>
+						</ul>
+					</aside>
+				</section>		
+				<!-- 
+					===========================================================
+					TOOLING - LWS DISTORTION VIEWER
+				-->
+				<section id="tooling-eslint" class="has-header">
+					<div class="slide-title">
+						<h2>LWS ESLint Plugin</h2>
+					</div>
+					<div>
+						<img class="screenshot center" src="assets/imgs/lws-eslint-02.png" />
+						<p class="attribution">Image: Salesforce</p>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>A search would be good</li>
+							<li></li>
+						</ul>
+					</aside>
+				</section>			
 				
 				
 				
@@ -226,15 +286,19 @@
 				-->
 				<section id="global-objects-recap" class="has-header">
 					<div class="slide-title">
-						<h1>Global Objects - Summary</h1>
+						<h2>Global Objects - Summary</h2>
 					</div>
-					<p>&nbsp;</p>
-					<p>Not complete parity on mobile</p>
 					<ul>
-						<li>Limited navigator</li>
-						<li>Clipboard exposed, but no permissions</li>
-						<li>No WebShare</li>
-						<li>No bluetooth</li>
+						<li class="fade-in-then-semi-out fragment">Lots more access</li>
+						<li class="fade-in-then-semi-out fragment">Not complete parity on mobile
+							<ul>
+								<li>Limited navigator</li>
+								<li>Clipboard exposed, but no permissions</li>
+								<li>No WebShare</li>
+								<li>No bluetooth</li>
+								<li>We do have lightning/mobileCapabilities</li>
+							</ul>
+						</li>
 					</ul>
 					<aside class="notes">
 						<ul>
@@ -288,12 +352,12 @@
 					===========================================================
 					DEMO VIDEO 2a - X-NAMESPACE
 				 -->
-				 <section id="x-namespace-code">
+				 <section id="x-namespace-code" class="has-header">
 					<div class="slide-title">
-						<h1>X-Namespace Component</h1>
+						<h2>X-Namespace Component</h2>
 					</div>
 					<p class="filename">globalObjectTwo.html</p>
-					<pre class="center"><code class="language-html" data-trim data-line-numbers="0|1|2-9|0">
+					<pre><code class="language-html" data-trim data-line-numbers="0|1|2-9|0">
 						<template lwc:if={error}>
 							&#60ltngmu-lwc-messaging-utility
 								message-type="alert"
@@ -305,7 +369,7 @@
 							&#60/ltngmu-lwc-messaging-utility>
 						</template>
 					</code></pre>
-					<img class="screenshot center" src="assets/imgs/x-namespace-screenshot.png"/>
+					<img id="x-namepace" class="screenshot" src="assets/imgs/x-namespace-screenshot.png"/>
 					 <aside class="notes">
 						 <ul>
 							 <li>Build on our previous demo</li>
@@ -360,7 +424,7 @@
 				-->
 				<section id="refreshview-lws1" class="has-header">
 					<div class="slide-title">
-						<h1>RefreshView API (LWS)</h1>
+						<h2>RefreshView API (LWS)</h2>
 					</div>					
 					<p class="filename">newContact.js</p>
 					<pre class="center"><code class="language-javascript" data-trim data-line-numbers="0|1|4-6|0">
@@ -386,7 +450,7 @@
 			   -->
 			   <section id="refreshview-lws2" class="has-header">
 				   <div class="slide-title">
-					   <h1>RefreshView API (LWS)</h1>
+					   <h2>RefreshView API (LWS)</h2>
 				   </div>					
 				   <p class="filename">primaryContact.js</p>
 				   <pre class="center"><code class="language-javascript" data-trim data-line-numbers="1|4-7|9-14">
@@ -430,7 +494,7 @@ refreshHandler() {
 				-->
 				<section id="refreshview-locker" class="has-header">
 					<div class="slide-title">
-						<h1>RefreshView API - Locker comparisson</h1>
+						<h2>RefreshView API - Locker comparisson</h2>
 					</div>					
 					<p class="filename">Registering a handler</p>
 					<pre class="center"><code class="language-javascript" data-trim data-line-numbers="0 |2-5 | 8-11">
@@ -458,9 +522,9 @@ this.rHandlerID = registerRefreshHandler(
 			   -->
 			   <section id="refreshview-locker-check" class="has-header">
 				   <div class="slide-title">
-					   <h1>Checking for LWS</h1>
+					   <h2>Checking for LWS</h2>
 				   </div>					
-				   <pre class="center"><code class="language-javascript" data-trim data-line-numbers="">
+				   <pre><code class="language-javascript" data-trim data-line-numbers="">
 function hasLightningWebSecurityEnabled() {
 	try {
 		new Worker();

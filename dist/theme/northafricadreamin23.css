@@ -584,11 +584,6 @@ pre.center {
   max-width: 80%;
 }
 
-#refreshview-locker-check pre {
-  margin: 0;
-  max-width: 100%;
-}
-
 tr.highlight-line td.hljs-ln-code {
   font-weight: bold;
   border: 3px dashed var(--accent);
@@ -660,6 +655,12 @@ img.qrcode {
 
 img.width80 {
   width: 80%;
+}
+
+img#x-namepace {
+  position: absolute;
+  top: 12%;
+  right: 8%;
 }
 
 i.center {
