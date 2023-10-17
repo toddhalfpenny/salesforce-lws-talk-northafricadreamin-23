@@ -146,6 +146,7 @@
 					<div class="slide-title">
 						<h1>And Lightning Web Security is Better?</h1>
 					</div>
+					<div class="cols-2">
 					<ul>
 						<li class="fade-in-then-semi-out fragment">Just as secure</li>
 						<li class="fade-in-then-semi-out fragment">Standards based</li>
@@ -154,11 +155,12 @@
 						<li class="fade-in-then-semi-out fragment">Also things to consider... we will get to them too</li>
 						<li class="fade-in-then-semi-out fragment">Available now</li>
 					</ul>
+						<img class="width80" src="assets/imgs/js-sandboxing.png"/>
+					</div>
 					<aside class="notes">
 						<ul>
 							<li>Standards based</li>
 							<li>"We expect to resume automatic enablement beginning with Winter24"</li>
-							<li>TODO IMAGE FROM BLOG</li>
 						</ul>
 					</aside>
 				</section>
@@ -203,7 +205,7 @@
 					<aside class="notes">
 						<ul>
 							<li>Remeber we mentioned LS has a pretent window</li>
-							<li>TODO What else? localStorage/indexedDB etc</li>
+							<li>indexedDB</li>
 						</ul>
 					</aside>
 				</section>
@@ -211,11 +213,10 @@
 					===========================================================
 					DEMO VIDEO 1a - Global Objects DESKTOP
 				 -->
-				 <section id="global-objects-demo" class="fullvideo" data-background-video ="assets/vids/lws-talk-raw-01.mp4" 
+				 <section id="global-objects-demo" class="fullvideo" data-background-video ="assets/vids/lws-talk-01.mp4" 
 				 data-background-size="contain">
 					 <aside class="notes">
 						 <ul>
-							 <li>TODO - VID ADD CODE and ZOOM to vide</li>
 						 </ul>
 					 </aside>
 				 </section>
@@ -225,11 +226,8 @@
 				-->
 				<section id="global-objects-recap" class="has-header">
 					<div class="slide-title">
-						<h1>Show me the good stuff</h1>
+						<h1>Global Objects - Summary</h1>
 					</div>
-					<ol>
-						<li>Access to global objects</l1>
-					</ol>
 					<p>&nbsp;</p>
 					<p>Not complete parity on mobile</p>
 					<ul>
@@ -240,6 +238,7 @@
 					</ul>
 					<aside class="notes">
 						<ul>
+							<li>Also IndexedDB</li>
 							<li>Have asked about increasing the scope</li>
 							<li>And we have lightning/mobileCapabilities</li>
 						</ul>
@@ -282,7 +281,6 @@
 							 <li>Build on our previous demo</li>
 							 <li>Stephan Chandler-Garcia OSS Lightning Message Utility</li>
 							 <li>More components on AppX</li>
-							 <li>TODO - VID ADD CODE</li>
 						 </ul>
 					 </aside>
 				 </section>
@@ -313,7 +311,6 @@
 							 <li>Build on our previous demo</li>
 							 <li>Stephan Chandler-Garcia OSS Lightning Message Utility</li>
 							 <li>More components on AppX</li>
-							 <li>TODO - VID ADD CODE</li>
 						 </ul>
 					 </aside>
 				 </section>
@@ -353,7 +350,7 @@
 				 data-background-size="contain">
 					 <aside class="notes">
 						 <ul>
-							 <li>TODO - VID ADD CODE</li>
+							 <li></li>
 						 </ul>
 					 </aside>
 				 </section>
@@ -417,13 +414,13 @@ refreshHandler() {
 			   </section>
 				<!-- 
 					===========================================================
-					DEMO VIDEO 3c - REFRESHVIEW VID WITH LWS
+					DEMO VIDEO 3d - REFRESHVIEW VID WITH LWS
 				 -->
 				 <section id="refreshview-demo-2" class="fullvideo" data-background-video ="assets/vids/lws-talk-raw-04.mp4" 
 				 data-background-size="contain">
 					 <aside class="notes">
 						 <ul>
-							 <li>TODO - ADD CODE</li>
+							 <li></li>
 						 </ul>
 					 </aside>
 				 </section>
@@ -431,21 +428,59 @@ refreshHandler() {
 					===========================================================
 					DEMO 3e - REFRESHVIEW
 				-->
-				<section id="refreshview-aura" class="has-header">
+				<section id="refreshview-locker" class="has-header">
 					<div class="slide-title">
-						<h1>RefreshView API (Aura)</h1>
+						<h1>RefreshView API - Locker comparisson</h1>
 					</div>					
-					<p class="filename">primaryContact.js</p>
-					<pre class="center"><code class="language-javascript" data-trim data-line-numbers="">
-// TODO
+					<p class="filename">Registering a handler</p>
+					<pre class="center"><code class="language-javascript" data-trim data-line-numbers="0 |2-5 | 8-11">
+// LWS
+this.rHandlerID = registerRefreshHandler(
+	this,
+	this.refreshHandler
+);
+
+// Locker Service
+this.rHandlerID = registerRefreshHandler(
+	this.template.host,
+	this.refreshHandler.bind(this)
+);
 					</code></pre>
 					<aside class="notes">
 						<ul>
-							<li>Standard components are not firing on delete</li>
-							<li>TODO - Locker Code comparisson</li>
+							<li>Dispating a refresh works in the same way</li>
 						</ul>
 					</aside>
 				</section>
+				<!-- 
+				   ===========================================================
+				   DEMO 3f - REFRESHVIEW
+			   -->
+			   <section id="refreshview-locker-check" class="has-header">
+				   <div class="slide-title">
+					   <h1>Checking for LWS</h1>
+				   </div>					
+				   <pre class="center"><code class="language-javascript" data-trim data-line-numbers="">
+function hasLightningWebSecurityEnabled() {
+	try {
+		new Worker();
+	} catch ({ message }) {
+		if (message.includes('Lightning Web Security: Cannot create Worker')) {
+		return true;
+		}
+	}
+	return false;
+}
+				   </code></pre>
+				   <aside class="notes">
+					   <ul>
+						   <li>Create a logical branch</li>
+						   <li>NOT work if uses static cross-namespace references</li>
+						   <li>would attempt to run or render on instantiation and cannot be gated by an if-statement</li>
+						   <li>"We are considering creating an officially supported way to check"</li>
+					   </ul>
+				   </aside>
+			   </section>
 
 
 
@@ -524,7 +559,7 @@ refreshHandler() {
 						<li>LWS FAQ<br/><a target="_blank" href="https://sforce.co/3RYInSO">sforce.co/3RYInSO</a><img class="qrcode" src="assets/imgs/sforce.co_3RYInSO.png"/></li>
 						<li>CodeLive - RefreshView API<br/><a target="_blank" href="https://bit.ly/3RWE7DA">bit.ly/3RWE7DA</a><img class="qrcode" src="assets/imgs/bit.ly_3RWE7DA.png"/></li>
 						<li>Lightning Message Utility Component<br/><a target="_blank" href="https://sforce.co/46E6CtS">sforce.co/46E6CtS</a><img class="qrcode" src="assets/imgs/sforce.co_46E6CtS.png"/></li>
-						<li>These slides<br/><a target="_blank" href="https://todo">todo</a><img class="qrcode" src="assets/imgs/todo.png"/></li>
+						<li>These slides<br/><a target="_blank" href="https://bit.ly/3QhVjSC">bit.ly/3QhVjSC</a><img class="qrcode" src="assets/imgs/bit.ly_3QhVjSC.png"/></li>
 					</ul>
 					<aside class="notes">
 						<ul>

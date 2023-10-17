@@ -584,6 +584,11 @@ pre.center {
   max-width: 80%;
 }
 
+#refreshview-locker-check pre {
+  margin: 0;
+  max-width: 100%;
+}
+
 tr.highlight-line td.hljs-ln-code {
   font-weight: bold;
   border: 3px dashed var(--accent);
@@ -653,8 +658,8 @@ img.qrcode {
   border: 1px solid var(--naGreen);
 }
 
-img.sljackson {
-  width: 70%;
+img.width80 {
+  width: 80%;
 }
 
 i.center {
